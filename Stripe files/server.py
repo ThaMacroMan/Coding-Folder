@@ -24,7 +24,7 @@ def index():
     '''
 
 
-YOUR_DOMAIN = 'http://localhost:4242'
+YOUR_DOMAIN = 'https://coding-folder-production.up.railway.app/'
 
 @main.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
