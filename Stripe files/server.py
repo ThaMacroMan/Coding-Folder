@@ -15,13 +15,12 @@ main = Flask(__name__,
             static_url_path='',
             static_folder='public')
 
+from flask import render_template
+
 @main.route('/')
 def index():
-    return '''
-        <form action="/create-checkout-session" method="POST">
-            <button id="checkout-button">Checkout</button>
-        </form>
-    '''
+    return render_template('index.html')
+
 
 
 YOUR_DOMAIN = 'https://coding-folder-production.up.railway.app/'
