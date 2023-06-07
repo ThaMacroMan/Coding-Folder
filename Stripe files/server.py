@@ -15,6 +15,15 @@ main = Flask(__name__,
             static_url_path='',
             static_folder='public')
 
+@main.route('/')
+def index():
+    return '''
+        <form action="/create-checkout-session" method="POST">
+            <button id="checkout-button">Checkout</button>
+        </form>
+    '''
+
+
 YOUR_DOMAIN = 'http://localhost:4242'
 
 @main.route('/create-checkout-session', methods=['POST'])
@@ -24,7 +33,7 @@ def create_checkout_session():
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': '{{price_1NGSYKKbuL58S9q0v1E6bYMg}}',
+                    'price': 'price_1NGSYKKbuL58S9q0v1E6bYMg',
                     'quantity': 1,
                 },
             ],
