@@ -10,22 +10,21 @@ from flask import Flask, redirect, request
 
 import stripe
 # This is your test secret API key.
-stripe.api_key = 'sk_test_51NG89gKbuL58S9q0Nf2t5V43XTsN8PovYRSCLRTObai1UGeiNKKq1IJVfUOnQwEkOLu1fhsNDW4k6SgaSbvXjHM0005uO49XlS'
-
-app = Flask(__name__,
+stripe.api_key = os.environ.get('stripe.api_key')
+main = Flask(__name__,
             static_url_path='',
             static_folder='public')
 
 YOUR_DOMAIN = 'http://localhost:4242'
 
-@app.route('/create-checkout-session', methods=['POST'])
+@main.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
         checkout_session = stripe.checkout.Session.create(
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': '{{PRICE_ID}}',
+                    'price': '{{price_1NGSYKKbuL58S9q0v1E6bYMg}}',
                     'quantity': 1,
                 },
             ],
@@ -40,4 +39,4 @@ def create_checkout_session():
     return redirect(checkout_session.url, code=303)
 
 if __name__ == '__main__':
-    app.run(port=4242)
+    main.run(port=4242)

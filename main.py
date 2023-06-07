@@ -1,5 +1,4 @@
-from flask import Flask,redirect,request, render_template
-import stripe
+from flask import Flask, render_template
 
 main = Flask(__name__)
 
