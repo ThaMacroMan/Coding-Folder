@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Basic Website</title>
+    <style>
+        body { background-color: #eee; font-family: Arial, sans-serif; }
+        .container { margin: 0 auto; max-width: 800px; padding: 1em; }
+        h1 { color: #444; }
+        p { line-height: 1.5; }
+    </style>
+</head>
+  <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed@latest/dist/web.js"
+    Chatbot.init({
+        chatflowid: "38753b38-733c-4ee6-a5bf-3218a919b1ee",
+        apiHost: "https://frontend-production-5b42.up.railway.app",
+    })
+</script>
+
+<body>
+    <div class="container">
+        <h1>Welcome to my website!</h1>
+        <p>This is a basic website built with Python and Flask!</p>
+    </div>
+</body>
+</html>
